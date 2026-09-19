@@ -113,3 +113,25 @@ from emp;
 select empno, sal, sal-200
 
 from emp;
+
+ALIAS:
+
+It is an alternate name given to the columns, expression an even for table names.
+
+--->Alias name is optional to be used.
+
+---> Alias name can be assigned with or without as key word.
+
+--->whenever we give a alias name and it has space either replace the space with underscore/ enclose such alias name within double quotes.
+
+select sal*12 as ANNUALSALARY from emp;
+
+select sal*12 ANNUALSALARY from emp;
+
+select sal*12 "ANNUAL SALARY" from emp;
+
+select sal*12 ANNUAL SALARY from emp;
+
+select ename Emp_names from emp;
+
+select ename,sal,job, sal+sal*0.25 HIKE FROM EMP;
