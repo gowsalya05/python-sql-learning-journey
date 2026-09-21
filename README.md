@@ -1,2 +1,4 @@
 # python-sql-learning-journey
-15 days learning journey in Python and SQL
+Currently learning Python and SQL and building my programming and database skills through regular practice and assignments.
+
+This repository contains my learning progress, practice work, and exercises.
