@@ -1,1 +1,197 @@
-Special Opeartors
+SPECIAL Operators:
+1. IN operator:
+--> It is also used to compare the values
+
+-->But = operator compares only single value at time where as IN operator can compare multiple values at a time.
+
+--> Whenever we use = operator it increases the number of conditions in the where clause but if use IN operator it will reduce the number of conditions in the where clause
+
+-->IN operator works like a combination of = and OR operator whenever compare the multiple values from the same column.
+
+---> To compare multiple values from the same column we use IN operator.
+
+---> whenever we compare multiple values parenthesis are mandatory but whenever we compare single value parenthesis optional.
+
+Syntax:
+Column_Name IN (val1, val2,.......valN)
+
+----waqtd name job and hiredate of an employees called smith, scott, ford, clark
+select ename,job, hiredate
+from emp
+where ename in ('SMITH', 'SCOTT', 'FORD', 'CLARK');
+
+SQL> ---WAQTD DETAILS OF AN EMPLOYEES WHO ARE WORKING EITHER IN DEPTNO 30 OR 20 AND THEY MUST BE EITHER WORKING AS CLERK OR MANAGER
+SQL> SELECT *
+FROM EMP
+WHERE DEΡΤΝΟ IN(20,30) AND JOB IN('CLERK', 'MANAGER');
+
+2. NOT IN operator:
+It is a type of special operator which is similar to IN operator but instec of selecting the values it is used to reject the values present at RHS side of the condition.
+
+--> To reject the multiple values from same column we use NOT IN operator.
+
+syntax:
+Column_Name NOT IN (val1, val2,.....valN)
+
+---waqtd name, job, salary and hiredate of an employee except Miller, Turnerand KING
+
+select ename,job, sal, hiredate
+from emp
+where ename not in ('MILLER', 'TURNER', 'KING');
+
+3. BETWEEN operator:
+It is a type of special operator which is used whenever we have a range of values.
+
+BETWEEN operator always works including the range of values.
+
+--->In the syntax of between we should never interchange the range of values
+
+---> In BETWEEN operator we should enclose the ranges within the parenthesis.
+
+syntax:
+Column_Name between lower_range and higher_range
+
+--> according to the question if the question has words like greater than, less than, more than, between, before and after words then in that case increase lower range by 1 and decrement the higher range by 1.
+
+---waqtd name and salary of an employees who earns the salary more than 1250 and less than 3000
+
+select ename,sal
+
+from emp
+
+where sal between 1251 and 2999;
+
+---waqtd name,job and salary of an employees who are earning salary ranging from 1100 to 2950
+
+select ENAME, JOB, SAL
+from emp
+where sal between 1100 and 2950;
+
+4.NOT BETWEEN operator:
+
+It is a type of special operator similar to BETWEEN operator but instead of selecting the values it is used to reject the range of values.
+
+syntax:
+Column_Name not between lower_range and higher-range
+
+----waqtd name job hiredate and salary of an employees except those employees who earn the salary between 1500 to 3000
+
+select ename,job, hiredate, sal
+from emp
+where sal not between 1501 and 2999;
+
+5.IS Operator:
+
+It is a type of special operator which is used to compare with theNULL's.
+
+--->If the value is Null it. selects it if it is Not null it rejects.
+
+---> Always IS operator must be used along with the NULL
+
+syntax:
+Column_Name IS NULL
+
+---waqtd name, job, sal and comm of an employees who are earning no commission
+
+select ename,job,sal,comm
+from emp
+where comm is null;
+
+6. IS NOT:
+
+It is a type of special operator similar to IS operator but instead of selecting the NULL it is used to reject the NULL.IS NOT operator must be used along with NULL keyword.
+
+syntax:
+Column Name IS NOT NULL:
+
+---waqtd name job of an employees who are working in either of the job.
+
+select ename, job
+from emp
+where job is not null;
+
+---waqtd details of an employees who are earning the salary and they must be working as clerk
+
+select *
+from emp
+where sal is not null and job='CLERK';
+
+---waqtd name, sal and comm of an employees who are earning the commission and they must be hired after 21-jul-1981
+
+select ename,sal,comm
+from emp
+where comm is not null and hiredate> '21-JUL-1981';
+
+7. LIKE operator
+
+It is a type of special operator which is used for pattern matching.
+
+--> always pattern matching must be written using wild card operators
+
+--> Always pattern must written within single quotes.
+
+syntax:
+Column_Name LIKE 'pattern_to_match'
+
+--> following are the wild card operator used for writing the pattern.
+
+%(percentile)
+
+(underscore)
+
+%(percentile)
+
+It is a symbol which accepts the any number of character
+
+---> It accepts any character
+
+--->It accepts even no character
+
+_(Underscore):
+
+It is accept any character
+
+It accepts only one character at a time.
+
+---waqtd names of an employees who are having 2 times character 'R' in there name
+
+select ename
+from emp
+where ename like '%R%R%';
+
+---waqtd names of an employees who are having consecutive 'T' in there name.
+
+select ename
+from emp
+where ename like '%TT%';
+
+---waqtd name, and hiredate of an employees who are hired in the year 87
+
+select ename, hiredate
+from emp
+where hiredate like '%87';
+
+SQL> ---waqtd name job and hiredate of an employees who are hired of the date 21 without bothering about the month and the year
+
+SQL> select ename, job, hiredate
+from emp
+where hiredate like '21%';
+
+8.NOT LIKE operator:
+
+It is a type of special operator similar to LIKE operator but instead of select the pattern it used to reject the pattern.
+
+syntax:
+Column_Name NOT LIKE 'pattern_to_reject';
+
+---waqtd name and job of an employees except those employees whose name starts with 'A'letter
+
+select ename,job
+from emp
+where ename not like 'A%';
+
+---waqtd name of an employees except those employees who are having character 'T' in there name
+
+select ename
+from emp
+where ename not like '%T%';
