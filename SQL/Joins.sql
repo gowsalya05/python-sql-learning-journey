@@ -331,3 +331,45 @@ select e.ename,m.ename
 from emp e join emp m
 
 on e.mgr=m.empno;
+
+---waqtd name, job and salary of an employees along with that display the managers name and there job.
+
+select e.ename,e.job,e.sal,m.ename,m.job
+
+from emp e join emp m
+
+on e.mgr=m.empno;
+
+---waqtd name, and salary of an employees along with that display name of managers and their hiredate at which employees are working as a clerk
+
+select e.ename,e.sal,m.ename,m.hiredate
+
+from emp e join emp m
+
+on e.mgr=m.empno
+
+where e.job='CLERK';
+
+SQL> ---waqtd ename, managers name and along with that display
+
+there respective salary at which employees salary is greater than the managers salary
+
+SQL> select e.ename, e.sal, m.ename,m.sal
+
+2 from emp e join emp m
+
+3 on e.mgr=m.empno
+
+4 where e.sal>m.sal;
+
+---waqtd details of an employees along with that there managers name
+
+and deptno at which employees and managers are from different departments
+
+select e.*,m.ename,m.deptno
+
+from emp e join emp m
+
+on e.mgr=m.empno
+
+where e.deptno!=m.deptno;
