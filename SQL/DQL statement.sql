@@ -163,13 +163,6 @@ select distinct deptno
 
 from emp;
 
-SE fr
-
-S
-
-f
-
-se fr
 
 SYNTAX of Projection:
 
