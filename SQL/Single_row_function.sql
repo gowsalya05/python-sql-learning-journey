@@ -573,3 +573,41 @@ select *
 from emp
 
 where To_char(hiredate, 'day') = 'wednesday';
+
+14.NVL: null value logic
+
+It is a type of single row function which is used to overcome the drawback of Null values.
+
+---waqtd total amount given to each employee in a month
+
+select sal+comm
+
+from emp;--> this query returns the wrong o/p it is because of Null values in the comm column. here, whenever perform arithmetic operations with the Null again the output is NULL. so, To overcome this drawback we use NVL).
+
+syntax of NVL() is:
+
+NVL(arg1,arg2)
+
+arg1: it should be the column that will have the null value
+
+arg2: It should be the replacement value for Null in the arg1.
+
+----waqtd name, sal, comm and total salary given to each employee in month
+
+select ename, sal, comm, sal+NVL(comm,0)
+
+from emp;
+
+NVL2():
+
+It is a type of function that returns second argument when first argument is not null and it returns the third argument when the first argument is null.
+
+syntax:
+
+NVL2(arg1, string1, string2)
+
+---wagtd name, sal and comm of an employee if the earn a commission then display it as comm if there are not earning any comm then display it as a no comm.
+
+select ename, sal, comm, nvl2(comm,'comm', 'no comm')
+
+from emp;
